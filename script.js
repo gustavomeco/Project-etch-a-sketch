@@ -1,13 +1,23 @@
 const container = document.querySelector("#container");
 const containerWidth = container.clientWidth;
 
+function checkPx (humanInput) {
+    if (humanInput <= 100 && humanInput > 0) {
+        createGridItems(humanInput); 
+    } else{
+        alert("Erro!!!");
+    }
+}
 
 function createGridItems(userInput) {
+    container.innerText= "";
     const gridPx = userInput * userInput;
     const size = containerWidth / userInput;
     // /calculate the size of each grid item by getting the width of the container divided by the number of squares in a row
 
+
     for (let i = 0; i < gridPx; i++) {
+
         let square = document.createElement("div");
         square.classList.add("block");
 
@@ -20,5 +30,8 @@ function createGridItems(userInput) {
     }
 }
 
-let userInput = prompt("Answer the number of squares per side for the new grid: ")
-createGridItems(userInput);
+const buttonGrid = document.querySelector(".button");
+buttonGrid.addEventListener("click",(event) => {
+    let userInput = prompt("Answer the number of squares per side for the new grid: ")
+    checkPx(userInput)
+})
