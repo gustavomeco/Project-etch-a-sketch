@@ -14,6 +14,9 @@ function createGridItems(userInput) {
         square.style.width = size + 'px';
         square.style.height = size + 'px';
         container.appendChild(square);
+        square.addEventListener("mouseenter",(event) => {
+            square.style.backgroundColor = "black";
+        });
     }
 }
 
