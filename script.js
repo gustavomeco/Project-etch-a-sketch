@@ -25,7 +25,10 @@ function createGridItems(userInput) {
         square.style.height = size + 'px';
         container.appendChild(square);
         square.addEventListener("mouseenter",(event) => {
-            square.style.backgroundColor = "black";
+            let num1 = generateRgb();
+            let num2 = generateRgb();
+            let num3 = generateRgb();
+            square.style.backgroundColor = `rgb( ${num1}, ${num2}, ${num3})`;
         });
     }
 }
@@ -35,3 +38,7 @@ buttonGrid.addEventListener("click",(event) => {
     let userInput = prompt("Answer the number of squares per side for the new grid: ")
     checkPx(userInput)
 })
+
+function generateRgb() {
+    return Math.floor(Math.random() * 256); 
+}
